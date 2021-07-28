@@ -5,15 +5,15 @@ spring:
     encoding: UTF-8
 
 server:
-  port: 8083
+  port: 8080
 
 logging:
   level:
     root:  ERROR
-    org.springframework:  ERROR
-    org.mybatis:  ERROR
+    org.springframework:  INFO
+    org.mybatis:  INFO
     org.linlinjava.litemall.admin:  DEBUG
-    org.linlinjava.litemall:  ERROR
+    org.linlinjava.litemall:  DEBUG
 
 swagger:
   production: false

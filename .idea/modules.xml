@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/shopping.iml" filepath="$PROJECT_DIR$/shopping.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shopping-admin-api/shopping-admin-api.iml" filepath="$PROJECT_DIR$/shopping-admin-api/shopping-admin-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shopping-all/shopping-all.iml" filepath="$PROJECT_DIR$/shopping-all/shopping-all.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shopping-all-war/shopping-all-war.iml" filepath="$PROJECT_DIR$/shopping-all-war/shopping-all-war.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shopping-core/shopping-core.iml" filepath="$PROJECT_DIR$/shopping-core/shopping-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shopping-db/shopping-db.iml" filepath="$PROJECT_DIR$/shopping-db/shopping-db.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shopping-wx-api/shopping-wx-api.iml" filepath="$PROJECT_DIR$/shopping-wx-api/shopping-wx-api.iml" />
+    </modules>
+  </component>
+</project>

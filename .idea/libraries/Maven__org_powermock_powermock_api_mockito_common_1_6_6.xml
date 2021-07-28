@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.powermock:powermock-api-mockito-common:1.6.6">
+    <CLASSES>
+      <root url="jar://E:/javadev/apache-maven-3.5.4-bin/repository_bigdata/org/powermock/powermock-api-mockito-common/1.6.6/powermock-api-mockito-common-1.6.6.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://E:/javadev/apache-maven-3.5.4-bin/repository_bigdata/org/powermock/powermock-api-mockito-common/1.6.6/powermock-api-mockito-common-1.6.6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://E:/javadev/apache-maven-3.5.4-bin/repository_bigdata/org/powermock/powermock-api-mockito-common/1.6.6/powermock-api-mockito-common-1.6.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

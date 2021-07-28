@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.linlinjava</groupId>
-    <artifactId>litemall</artifactId>
+    <artifactId>shopping</artifactId>
     <version>0.1.0</version>
     <packaging>pom</packaging>
 
@@ -20,39 +20,39 @@
     </properties>
 
     <modules>
-        <module>litemall-core</module>
-        <module>litemall-db</module>
-        <module>litemall-wx-api</module>
-        <module>litemall-admin-api</module>
-        <module>litemall-all</module>
-        <module>litemall-all-war</module>
+        <module>shopping-core</module>
+        <module>shopping-db</module>
+        <module>shopping-wx-api</module>
+        <module>shopping-admin-api</module>
+        <module>shopping-all</module>
+        <module>shopping-all-war</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.linlinjava</groupId>
-                <artifactId>litemall-core</artifactId>
+                <artifactId>shopping-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.linlinjava</groupId>
-                <artifactId>litemall-db</artifactId>
+                <artifactId>shopping-db</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.linlinjava</groupId>
-                <artifactId>litemall-wx-api</artifactId>
+                <artifactId>shopping-wx-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.linlinjava</groupId>
-                <artifactId>litemall-admin-api</artifactId>
+                <artifactId>shopping-admin-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.linlinjava</groupId>
-                <artifactId>litemall-all</artifactId>
+                <artifactId>shopping-all</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

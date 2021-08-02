@@ -29,3 +29,9 @@ spring:
       filter:
         stat:
           enabled: false
+  redis:
+    host: 42.192.46.160
+    port: 6379
+    jedis:
+      pool:
+        max-active: 1000

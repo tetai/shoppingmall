@@ -18,7 +18,7 @@
         <el-input v-model="loginForm.password" :type="passwordType" name="password" auto-complete="on" tabindex="2" show-password placeholder="管理员密码" @keyup.enter.native="handleLogin" />
       </el-form-item>
 
-      <el-form-item prop="code">
+      <!-- <el-form-item prop="code">
         <span class="svg-container">
           <svg-icon icon-class="lock" />
         </span>
@@ -26,7 +26,7 @@
         <div class="login-code">
           <img :src="codeImg" @click="getCode">
         </div>
-      </el-form-item>
+      </el-form-item> -->
 
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
 

@@ -93,15 +93,15 @@ public class AdminAuthController {
         if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
             return ResponseUtil.badArgument();
         }
-        if (StringUtils.isEmpty(code)) {
-            return ResponseUtil.fail(ADMIN_INVALID_KAPTCHA_REQUIRED, "验证码不能空");
-        }
+//        if (StringUtils.isEmpty(code)) {
+//            return ResponseUtil.fail(ADMIN_INVALID_KAPTCHA_REQUIRED, "验证码不能空");
+//        }
 
-        HttpSession session = request.getSession();
-        String kaptcha = (String)session.getAttribute("kaptcha");
-        if (Objects.requireNonNull(code).compareToIgnoreCase(kaptcha) != 0) {
-            return ResponseUtil.fail(ADMIN_INVALID_KAPTCHA, "验证码不正确", doKaptcha(request));
-        }
+//        HttpSession session = request.getSession();
+//        String kaptcha = (String)session.getAttribute("kaptcha");
+//        if (Objects.requireNonNull(code).compareToIgnoreCase(kaptcha) != 0) {
+//            return ResponseUtil.fail(ADMIN_INVALID_KAPTCHA, "验证码不正确", doKaptcha(request));
+//        }
 
         Subject currentUser = SecurityUtils.getSubject();
         try {

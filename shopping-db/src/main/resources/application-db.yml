@@ -35,3 +35,7 @@ spring:
     jedis:
       pool:
         max-active: 1000
+canal:
+  server: 42.192.46.160:11111
+  destination: example
+

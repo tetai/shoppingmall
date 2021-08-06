@@ -50,9 +50,9 @@
     </root>
     <logger name="org.mybatis" level="ERROR" />
     <logger name="org.springframework" level="ERROR" />
-    <logger name="org.linlinjava.litemall.core" level="ERROR" />
-    <logger name="org.linlinjava.litemall.db" level="ERROR" />
-    <logger name="org.linlinjava.litemall.admin" level="DEBUG" />
-    <logger name="org.linlinjava.litemall.wx" level="DEBUG" />
-    <logger name="org.linlinjava.litemall" level="DEBUG" />
+    <logger name="org.zkz.litemall.core" level="ERROR" />
+    <logger name="org.zkz.litemall.db" level="ERROR" />
+    <logger name="org.zkz.litemall.admin" level="DEBUG" />
+    <logger name="org.zkz.litemall.wx" level="DEBUG" />
+    <logger name="org.zkz.litemall" level="DEBUG" />
 </configuration>

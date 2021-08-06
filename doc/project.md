@@ -468,20 +468,20 @@ flush privilege
 ```
     <logger name="org.mybatis" level="ERROR" />
     <logger name="org.springframework" level="ERROR" />
-    <logger name="org.linlinjava.litemall.core" level="DEBUG" />
-    <logger name="org.linlinjava.litemall.db" level="DEBUG" />
-    <logger name="org.linlinjava.litemall.admin" level="DEBUG" />
-    <logger name="org.linlinjava.litemall.wx" level="DEBUG" />
-    <logger name="org.linlinjava.litemall" level="DEBUG" />
+    <logger name="org.zkz.litemall.core" level="DEBUG" />
+    <logger name="org.zkz.litemall.db" level="DEBUG" />
+    <logger name="org.zkz.litemall.admin" level="DEBUG" />
+    <logger name="org.zkz.litemall.wx" level="DEBUG" />
+    <logger name="org.zkz.litemall" level="DEBUG" />
 ```
 
 具体如何配置，请自行学习Spring Boot的日志配置和logback日志配置。
 
-`org.linlinjava.litemall.core`定义litemall-core模块的日志级别
-`org.linlinjava.litemall.db`定义litemall-db模块的日志级别
-`org.linlinjava.litemall.wx`定义litemall-wx-api模块的日志级别
-`org.linlinjava.litemall.admin`定义litemall-admin-api模块的日志级别
-`org.linlinjava.litemall`而定义litemall所有后端模块的日志级别
+`org.zkz.litemall.core`定义litemall-core模块的日志级别
+`org.zkz.litemall.db`定义litemall-db模块的日志级别
+`org.zkz.litemall.wx`定义litemall-wx-api模块的日志级别
+`org.zkz.litemall.admin`定义litemall-admin-api模块的日志级别
+`org.zkz.litemall`而定义litemall所有后端模块的日志级别
 
 当然，如果开发者这里启动litemall后端模块级别是DEBUG时，可能会发现并没有很多日志，
 这是因为代码内部没有写很多日志，开发者可以根据需要添加。

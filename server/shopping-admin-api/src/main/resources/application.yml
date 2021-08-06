@@ -12,8 +12,8 @@ logging:
     root:  ERROR
     org.springframework:  INFO
     org.mybatis:  INFO
-    org.linlinjava.litemall.admin:  DEBUG
-    org.linlinjava.litemall:  DEBUG
+    org.zkz.litemall.admin:  DEBUG
+    org.zkz.litemall:  DEBUG
 
 swagger:
   production: false

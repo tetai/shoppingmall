@@ -5,7 +5,7 @@
     <packaging>war</packaging>
 
     <parent>
-        <groupId>org.linlinjava</groupId>
+        <groupId>org.zkz</groupId>
         <artifactId>shopping</artifactId>
         <version>0.1.0</version>
     </parent>
@@ -13,22 +13,22 @@
     <dependencies>
 
         <dependency>
-            <groupId>org.linlinjava</groupId>
+            <groupId>org.zkz</groupId>
             <artifactId>shopping-core</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.linlinjava</groupId>
+            <groupId>org.zkz</groupId>
             <artifactId>shopping-db</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.linlinjava</groupId>
+            <groupId>org.zkz</groupId>
             <artifactId>shopping-wx-api</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.linlinjava</groupId>
+            <groupId>org.zkz</groupId>
             <artifactId>shopping-admin-api</artifactId>
         </dependency>
 

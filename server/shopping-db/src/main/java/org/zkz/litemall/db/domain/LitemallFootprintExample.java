@@ -128,7 +128,7 @@ public class LitemallFootprintExample {
      *
      * @mbg.generated
      */
-    public LitemallFootprintExample orderBy(String ... orderByClauses) {
+    public LitemallFootprintExample orderBy(String... orderByClauses) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < orderByClauses.length; i++) {
             sb.append(orderByClauses[i]);

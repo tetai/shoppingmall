@@ -128,7 +128,7 @@ public class MoneyLogExample {
      *
      * @mbg.generated
      */
-    public MoneyLogExample orderBy(String ... orderByClauses) {
+    public MoneyLogExample orderBy(String... orderByClauses) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < orderByClauses.length; i++) {
             sb.append(orderByClauses[i]);

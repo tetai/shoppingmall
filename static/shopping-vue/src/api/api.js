@@ -106,6 +106,17 @@ export function goodsList(query) {
     params: query
   })
 }
+
+export const EsSearch='shopping-es/search'; //关键字搜索商品
+export function searchGoodsList(query) {
+  let url = EsSearch + "/" + query.keyword + "/" + query.page + "/" + query.limit;
+  return request({
+    url: url,
+    method: 'get',
+    params: query
+  })
+}
+
 const GoodsCategory='wx/goods/category'; //获得分类数据
 export function goodsCategory(query) {
   return request({

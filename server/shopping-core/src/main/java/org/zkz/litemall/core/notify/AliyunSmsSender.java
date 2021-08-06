@@ -91,15 +91,14 @@ public class AliyunSmsSender implements SmsSender {
           如果开发者在阿里云短信申请的模板参数是其他命名，请开发者自行调整这里的代码，或者直接写死。
          */
         String templateParam = "{}";
-        if(params.length == 1){
+        if (params.length == 1) {
             Map<String, String> data = new HashMap<>();
             data.put("code", params[0]);
             templateParam = JacksonUtil.toJson(data);
-        }
-        else if(params.length > 1){
+        } else if (params.length > 1) {
             Map<String, String> data = new HashMap<>();
             data.put("code", params[0]);
-            for(int i = 1; i < params.length; i++){
+            for (int i = 1; i < params.length; i++) {
                 data.put("code" + i, params[i]);
             }
             templateParam = JacksonUtil.toJson(data);
@@ -110,12 +109,12 @@ public class AliyunSmsSender implements SmsSender {
             CommonResponse response = client.getCommonResponse(request);
             SmsResult smsResult = new SmsResult();
             smsResult.setResult(response);
-            String code =  Jackson.jsonNodeOf(response.getData()).get("Code").asText();
-            if (response.getHttpResponse().isSuccess() && okCode.equals(code) ){
+            String code = Jackson.jsonNodeOf(response.getData()).get("Code").asText();
+            if (response.getHttpResponse().isSuccess() && okCode.equals(code)) {
                 smsResult.setSuccessful(true);
-            }else {
+            } else {
                 smsResult.setSuccessful(false);
-                logger.error("短信发送失败："+response.getData());
+                logger.error("短信发送失败：" + response.getData());
             }
 
             return smsResult;

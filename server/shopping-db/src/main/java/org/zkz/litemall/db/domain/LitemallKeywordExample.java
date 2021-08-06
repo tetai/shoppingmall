@@ -128,7 +128,7 @@ public class LitemallKeywordExample {
      *
      * @mbg.generated
      */
-    public LitemallKeywordExample orderBy(String ... orderByClauses) {
+    public LitemallKeywordExample orderBy(String... orderByClauses) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < orderByClauses.length; i++) {
             sb.append(orderByClauses[i]);

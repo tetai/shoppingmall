@@ -128,7 +128,7 @@ public class LitemallNoticeExample {
      *
      * @mbg.generated
      */
-    public LitemallNoticeExample orderBy(String ... orderByClauses) {
+    public LitemallNoticeExample orderBy(String... orderByClauses) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < orderByClauses.length; i++) {
             sb.append(orderByClauses[i]);

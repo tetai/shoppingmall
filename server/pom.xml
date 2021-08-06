@@ -26,6 +26,7 @@
         <module>shopping-admin-api</module>
         <module>shopping-all</module>
         <module>shopping-all-war</module>
+        <module>shopping-es</module>
     </modules>
 
     <dependencyManagement>
@@ -144,34 +145,34 @@
             </dependency>
 
             <dependency>
-		       <groupId>io.springfox</groupId>
-			   <artifactId>springfox-swagger2</artifactId>
-			   <version>2.9.2</version>
-		   </dependency>
-		
-		<dependency>
-			  <groupId>io.springfox</groupId>
-			  <artifactId>springfox-swagger-ui</artifactId>
-			  <version>2.9.2</version>
-		</dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>2.9.2</version>
+            </dependency>
 
-        <dependency>
-            <groupId>com.github.penggle</groupId>
-            <artifactId>kaptcha</artifactId>
-            <version>2.3.2</version>
-        </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>2.9.2</version>
+            </dependency>
 
-		<!--引入ui包-->
-		<dependency>
-	 		 <groupId>com.github.xiaoymin</groupId>
-	 		 <artifactId>swagger-bootstrap-ui</artifactId>
-	 		<version>1.9.6</version>
-		</dependency>
-		<dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>30.0-jre</version>
-        </dependency>
+            <dependency>
+                <groupId>com.github.penggle</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>2.3.2</version>
+            </dependency>
+
+            <!--引入ui包-->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>swagger-bootstrap-ui</artifactId>
+                <version>1.9.6</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>30.0-jre</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.auth0</groupId>

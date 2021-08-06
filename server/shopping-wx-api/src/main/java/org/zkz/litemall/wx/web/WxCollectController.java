@@ -52,7 +52,7 @@ public class WxCollectController {
      * @param userId 用户ID
      * @param type   类型，如果是0则是商品收藏，如果是1则是专题收藏
      * @param page   分页页数
-     * @param limit   分页大小
+     * @param limit  分页大小
      * @return 用户收藏列表
      */
     @GetMapping("list")
@@ -74,20 +74,20 @@ public class WxCollectController {
             c.put("id", collect.getId());
             c.put("type", collect.getType());
             c.put("valueId", collect.getValueId());
-            if (type == (byte)0){
-            	//查询商品信息
+            if (type == (byte) 0) {
+                //查询商品信息
                 LitemallGoods goods = goodsService.findById(collect.getValueId());
                 c.put("name", goods.getName());
                 c.put("brief", goods.getBrief());
                 c.put("picUrl", goods.getPicUrl());
                 c.put("retailPrice", goods.getRetailPrice());
             } else {
-            	//查询专题信息
-            	LitemallTopic topic = topicService.findById(collect.getValueId());
-	            c.put("title", topic.getTitle());
-	            c.put("subtitle", topic.getTitle());
-	            c.put("price", topic.getPrice());
-	            c.put("picUrl", topic.getPicUrl());
+                //查询专题信息
+                LitemallTopic topic = topicService.findById(collect.getValueId());
+                c.put("title", topic.getTitle());
+                c.put("subtitle", topic.getTitle());
+                c.put("price", topic.getPrice());
+                c.put("picUrl", topic.getPicUrl());
             }
             collects.add(c);
         }

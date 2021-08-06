@@ -35,7 +35,7 @@ public class DbJob {
         String url = environment.getProperty("spring.datasource.druid.url");
         int index1 = url.indexOf("3306/");
         int index2 = url.indexOf("?");
-        String db = url.substring(index1+5, index2);
+        String db = url.substring(index1 + 5, index2);
 
         LocalDate localDate = LocalDate.now();
         String fileName = localDate.toString() + ".sql";
@@ -47,7 +47,7 @@ public class DbJob {
         DbUtil.backup(file, user, password, db);
         // 删除七天前数据库备份文件
         LocalDate before = localDate.minusDays(7);
-        String fileBeforeName = before.toString()+".sql";
+        String fileBeforeName = before.toString() + ".sql";
         File fileBefore = new File("backup", fileBeforeName);
         if (fileBefore.exists()) {
             fileBefore.delete();

@@ -68,8 +68,7 @@ public class WxCartController {
             if (goods == null || !goods.getIsOnSale()) {
                 cartService.deleteById(cart.getId());
                 logger.debug("系统自动删除失效购物车商品 goodsId=" + cart.getGoodsId() + " productId=" + cart.getProductId());
-            }
-            else{
+            } else {
                 cartList.add(cart);
             }
         }
@@ -124,7 +123,7 @@ public class WxCartController {
         if (!ObjectUtils.allNotNull(productId, number, goodsId)) {
             return ResponseUtil.badArgument();
         }
-        if(number <= 0){
+        if (number <= 0) {
             return ResponseUtil.badArgument();
         }
 
@@ -146,10 +145,9 @@ public class WxCartController {
             cart.setId(null);
             cart.setGoodsSn(goods.getGoodsSn());
             cart.setGoodsName((goods.getName()));
-            if(StringUtils.isEmpty(product.getUrl())){
+            if (StringUtils.isEmpty(product.getUrl())) {
                 cart.setPicUrl(goods.getPicUrl());
-            }
-            else{
+            } else {
                 cart.setPicUrl(product.getUrl());
             }
             cart.setPrice(product.getPrice());
@@ -198,7 +196,7 @@ public class WxCartController {
         if (!ObjectUtils.allNotNull(productId, number, goodsId)) {
             return ResponseUtil.badArgument();
         }
-        if(number <= 0){
+        if (number <= 0) {
             return ResponseUtil.badArgument();
         }
 
@@ -220,10 +218,9 @@ public class WxCartController {
             cart.setId(null);
             cart.setGoodsSn(goods.getGoodsSn());
             cart.setGoodsName((goods.getName()));
-            if(StringUtils.isEmpty(product.getUrl())){
+            if (StringUtils.isEmpty(product.getUrl())) {
                 cart.setPicUrl(goods.getPicUrl());
-            }
-            else{
+            } else {
                 cart.setPicUrl(product.getUrl());
             }
             cart.setPrice(product.getPrice());
@@ -265,7 +262,7 @@ public class WxCartController {
         if (!ObjectUtils.allNotNull(id, productId, number, goodsId)) {
             return ResponseUtil.badArgument();
         }
-        if(number <= 0){
+        if (number <= 0) {
             return ResponseUtil.badArgument();
         }
 
@@ -468,14 +465,14 @@ public class WxCartController {
         Integer tmpUserCouponId = 0;
         int tmpCouponLength = 0;
         List<LitemallCouponUser> couponUserList = couponUserService.queryAll(userId);
-        for(LitemallCouponUser couponUser : couponUserList){
+        for (LitemallCouponUser couponUser : couponUserList) {
             LitemallCoupon coupon = couponVerifyService.checkCoupon(userId, couponUser.getCouponId(), couponUser.getId(), checkedGoodsPrice, checkedGoodsList);
-            if(coupon == null){
+            if (coupon == null) {
                 continue;
             }
 
             tmpCouponLength++;
-            if(tmpCouponPrice.compareTo(coupon.getDiscount()) == -1){
+            if (tmpCouponPrice.compareTo(coupon.getDiscount()) == -1) {
                 tmpCouponPrice = coupon.getDiscount();
                 tmpCouponId = coupon.getId();
                 tmpUserCouponId = couponUser.getId();
@@ -488,24 +485,21 @@ public class WxCartController {
         // 1. 用户不想使用优惠券，则不处理
         // 2. 用户想自动使用优惠券，则选择合适优惠券
         // 3. 用户已选择优惠券，则测试优惠券是否合适
-        if (couponId == null || couponId.equals(-1)){
+        if (couponId == null || couponId.equals(-1)) {
             couponId = -1;
             userCouponId = -1;
-        }
-        else if (couponId.equals(0)) {
+        } else if (couponId.equals(0)) {
             couponPrice = tmpCouponPrice;
             couponId = tmpCouponId;
             userCouponId = tmpUserCouponId;
-        }
-        else {
+        } else {
             LitemallCoupon coupon = couponVerifyService.checkCoupon(userId, couponId, userCouponId, checkedGoodsPrice, checkedGoodsList);
             // 用户选择的优惠券有问题，则选择合适优惠券，否则使用用户选择的优惠券
-            if(coupon == null){
+            if (coupon == null) {
                 couponPrice = tmpCouponPrice;
                 couponId = tmpCouponId;
                 userCouponId = tmpUserCouponId;
-            }
-            else {
+            } else {
                 couponPrice = coupon.getDiscount();
             }
         }

@@ -53,7 +53,7 @@ public class LitemallGrouponRulesService {
     public int countByGoodsId(Integer goodsId) {
         LitemallGrouponRulesExample example = new LitemallGrouponRulesExample();
         example.or().andGoodsIdEqualTo(goodsId).andStatusEqualTo(GrouponConstant.RULE_STATUS_ON).andDeletedEqualTo(false);
-        return (int)mapper.countByExample(example);
+        return (int) mapper.countByExample(example);
     }
 
     public List<LitemallGrouponRules> queryByStatus(Short status) {

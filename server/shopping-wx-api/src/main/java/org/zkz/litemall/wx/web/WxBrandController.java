@@ -32,7 +32,7 @@ public class WxBrandController {
     /**
      * 品牌列表
      *
-     * @param page 分页页数
+     * @param page  分页页数
      * @param limit 分页大小
      * @return 品牌列表
      */

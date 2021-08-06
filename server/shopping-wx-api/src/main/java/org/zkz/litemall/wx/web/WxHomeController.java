@@ -72,6 +72,7 @@ public class WxHomeController {
 
     /**
      * 首页数据
+     *
      * @param userId 当用户已经登录时，非空。为登录状态为null
      * @return 首页数据
      */
@@ -89,10 +90,10 @@ public class WxHomeController {
         Callable<List> channelListCallable = () -> categoryService.queryChannel();
 
         Callable<List> couponListCallable;
-        if(userId == null){
+        if (userId == null) {
             couponListCallable = () -> couponService.queryList(0, 3);
         } else {
-            couponListCallable = () -> couponService.queryAvailableList(userId,0, 3);
+            couponListCallable = () -> couponService.queryAvailableList(userId, 0, 3);
         }
 
 
@@ -142,8 +143,7 @@ public class WxHomeController {
             entity.put("floorGoodsList", floorGoodsListTask.get());
             //缓存数据
             HomeCacheManager.loadData(HomeCacheManager.INDEX, entity);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 //        finally {
@@ -180,6 +180,7 @@ public class WxHomeController {
 
     /**
      * 商城介绍信息
+     *
      * @return 商城介绍信息
      */
     @GetMapping("/about")

@@ -19,7 +19,7 @@ public class LitemallPermissionService {
 
     public Set<String> queryByRoleIds(Integer[] roleIds) {
         Set<String> permissions = new HashSet<String>();
-        if(roleIds.length == 0){
+        if (roleIds.length == 0) {
             return permissions;
         }
 
@@ -27,7 +27,7 @@ public class LitemallPermissionService {
         example.or().andRoleIdIn(Arrays.asList(roleIds)).andDeletedEqualTo(false);
         List<LitemallPermission> permissionList = permissionMapper.selectByExample(example);
 
-        for(LitemallPermission permission : permissionList){
+        for (LitemallPermission permission : permissionList) {
             permissions.add(permission.getPermission());
         }
 
@@ -37,7 +37,7 @@ public class LitemallPermissionService {
 
     public Set<String> queryByRoleId(Integer roleId) {
         Set<String> permissions = new HashSet<String>();
-        if(roleId == null){
+        if (roleId == null) {
             return permissions;
         }
 
@@ -45,7 +45,7 @@ public class LitemallPermissionService {
         example.or().andRoleIdEqualTo(roleId).andDeletedEqualTo(false);
         List<LitemallPermission> permissionList = permissionMapper.selectByExample(example);
 
-        for(LitemallPermission permission : permissionList){
+        for (LitemallPermission permission : permissionList) {
             permissions.add(permission.getPermission());
         }
 
@@ -53,7 +53,7 @@ public class LitemallPermissionService {
     }
 
     public boolean checkSuperPermission(Integer roleId) {
-        if(roleId == null){
+        if (roleId == null) {
             return false;
         }
 

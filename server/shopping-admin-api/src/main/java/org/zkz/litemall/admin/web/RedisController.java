@@ -16,20 +16,20 @@ public class RedisController {
     private RedisUtil redisUtil;
 
     @RequestMapping("set")
-    public boolean redisset(String key, String value){
+    public boolean redisset(String key, String value) {
 
         //return redisUtil.set(key,userEntity,ExpireTime);
 
-        return redisUtil.set(key,value);
+        return redisUtil.set(key, value);
     }
 
     @RequestMapping("get")
-    public Object redisget(String key){
+    public Object redisget(String key) {
         return redisUtil.get(key);
     }
 
     @RequestMapping("expire")
-    public boolean expire(String key){
-        return redisUtil.expire(key,ExpireTime);
+    public boolean expire(String key) {
+        return redisUtil.expire(key, ExpireTime);
     }
 }

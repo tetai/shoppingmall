@@ -49,11 +49,11 @@ public class LitemallGoodsProductService {
         litemallGoodsProductMapper.logicalDeleteByExample(example);
     }
 
-    public int addStock(Integer id, Short num){
+    public int addStock(Integer id, Short num) {
         return goodsProductMapper.addStock(id, num);
     }
 
-    public int reduceStock(Integer id, Short num){
+    public int reduceStock(Integer id, Short num) {
         return goodsProductMapper.reduceStock(id, num);
     }
 

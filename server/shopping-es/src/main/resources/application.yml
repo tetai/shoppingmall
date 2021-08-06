@@ -1,0 +1,21 @@
+ribbon.ReadTimeout: 120000
+#请求连接的超时时间
+ribbon.ConnectTimeout: 30000
+server:
+  port: 8900
+  profiles:
+    active: dev
+spring:
+  data:
+    elasticsearch:
+      cluster-nodes: 127.0.0.1:9300
+      cluster-name: elasticsearch
+
+  profiles:
+    active: db, core, admin, wx
+  messages:
+    encoding: UTF-8
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB

@@ -128,7 +128,7 @@ public class LitemallPermissionExample {
      *
      * @mbg.generated
      */
-    public LitemallPermissionExample orderBy(String ... orderByClauses) {
+    public LitemallPermissionExample orderBy(String... orderByClauses) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < orderByClauses.length; i++) {
             sb.append(orderByClauses[i]);

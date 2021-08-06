@@ -128,7 +128,7 @@ public class LitemallAdminExample {
      *
      * @mbg.generated
      */
-    public LitemallAdminExample orderBy(String ... orderByClauses) {
+    public LitemallAdminExample orderBy(String... orderByClauses) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < orderByClauses.length; i++) {
             sb.append(orderByClauses[i]);
@@ -257,7 +257,7 @@ public class LitemallAdminExample {
 
         public boolean isValid() {
             return criteria.size() > 0
-                || roleIdsCriteria.size() > 0;
+                    || roleIdsCriteria.size() > 0;
         }
 
         public List<Criterion> getAllCriteria() {

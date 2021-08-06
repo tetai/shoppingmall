@@ -127,7 +127,7 @@ public class MoneyPackageExample {
      *
      * @mbg.generated
      */
-    public MoneyPackageExample orderBy(String ... orderByClauses) {
+    public MoneyPackageExample orderBy(String... orderByClauses) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < orderByClauses.length; i++) {
             sb.append(orderByClauses[i]);

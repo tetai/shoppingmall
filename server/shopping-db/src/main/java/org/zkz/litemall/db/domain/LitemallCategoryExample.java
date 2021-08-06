@@ -128,7 +128,7 @@ public class LitemallCategoryExample {
      *
      * @mbg.generated
      */
-    public LitemallCategoryExample orderBy(String ... orderByClauses) {
+    public LitemallCategoryExample orderBy(String... orderByClauses) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < orderByClauses.length; i++) {
             sb.append(orderByClauses[i]);

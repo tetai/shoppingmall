@@ -129,7 +129,7 @@ public class LitemallCouponExample {
      *
      * @mbg.generated
      */
-    public LitemallCouponExample orderBy(String ... orderByClauses) {
+    public LitemallCouponExample orderBy(String... orderByClauses) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < orderByClauses.length; i++) {
             sb.append(orderByClauses[i]);
@@ -258,7 +258,7 @@ public class LitemallCouponExample {
 
         public boolean isValid() {
             return criteria.size() > 0
-                || goodsValueCriteria.size() > 0;
+                    || goodsValueCriteria.size() > 0;
         }
 
         public List<Criterion> getAllCriteria() {

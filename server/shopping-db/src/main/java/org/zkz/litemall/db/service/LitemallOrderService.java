@@ -101,10 +101,10 @@ public class LitemallOrderService {
         if (!StringUtils.isEmpty(orderSn)) {
             criteria.andOrderSnEqualTo(orderSn);
         }
-        if(start != null){
+        if (start != null) {
             criteria.andAddTimeGreaterThanOrEqualTo(start);
         }
-        if(end != null){
+        if (end != null) {
             criteria.andAddTimeLessThanOrEqualTo(end);
         }
         if (orderStatusArray != null && orderStatusArray.size() != 0) {
@@ -230,7 +230,7 @@ public class LitemallOrderService {
         String query = StringUtils.collectionToDelimitedString(querys, "and");
         String orderByClause = null;
         if (!StringUtils.isEmpty(sort) && !StringUtils.isEmpty(order)) {
-            orderByClause = "o." + sort + " " + order +", o.id desc ";
+            orderByClause = "o." + sort + " " + order + ", o.id desc ";
         }
 
         PageHelper.startPage(page, limit);

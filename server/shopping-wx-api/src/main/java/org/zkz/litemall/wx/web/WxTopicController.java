@@ -37,13 +37,13 @@ public class WxTopicController {
     private LitemallTopicService topicService;
     @Autowired
     private LitemallGoodsService goodsService;
-	@Autowired
-	private LitemallCollectService collectService;
+    @Autowired
+    private LitemallCollectService collectService;
 
     /**
      * 专题列表
      *
-     * @param page 分页页数
+     * @param page  分页页数
      * @param limit 分页大小
      * @return 专题列表
      */
@@ -71,12 +71,12 @@ public class WxTopicController {
             if (null != good)
                 goods.add(good);
         }
-        
-		// 用户收藏
-		int userHasCollect = 0;
-		if (userId != null) {
-			userHasCollect = collectService.count(userId, (byte)1, id);
-		}
+
+        // 用户收藏
+        int userHasCollect = 0;
+        if (userId != null) {
+            userHasCollect = collectService.count(userId, (byte) 1, id);
+        }
 
         Map<String, Object> entity = new HashMap<String, Object>();
         entity.put("topic", topic);

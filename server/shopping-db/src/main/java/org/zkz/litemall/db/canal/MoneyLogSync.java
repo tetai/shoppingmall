@@ -6,12 +6,13 @@ import org.springframework.stereotype.Component;
 import top.javatool.canal.client.annotation.CanalTable;
 import top.javatool.canal.client.handler.EntryHandler;
 
-@CanalTable(value = "money_log")
-@Component
+//@CanalTable(value = "money_log")
+//@Component
 public class MoneyLogSync implements EntryHandler<MoneyLog> {
 
     @Autowired
     private RedisTemplate redisTemplate;
+
     /***
      * 数据增加变更
      * @param moneyLog

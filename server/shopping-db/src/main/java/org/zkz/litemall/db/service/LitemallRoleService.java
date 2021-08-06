@@ -6,6 +6,7 @@ import org.zkz.litemall.db.dao.LitemallRoleMapper;
 import org.zkz.litemall.db.domain.LitemallRole;
 import org.zkz.litemall.db.domain.LitemallRoleExample;
 import org.springframework.stereotype.Service;
+
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -21,7 +22,7 @@ public class LitemallRoleService {
 
     public Set<String> queryByIds(Integer[] roleIds) {
         Set<String> roles = new HashSet<String>();
-        if(roleIds.length == 0){
+        if (roleIds.length == 0) {
             return roles;
         }
 
@@ -29,7 +30,7 @@ public class LitemallRoleService {
         example.or().andIdIn(Arrays.asList(roleIds)).andEnabledEqualTo(true).andDeletedEqualTo(false);
         List<LitemallRole> roleList = roleMapper.selectByExample(example);
 
-        for(LitemallRole role : roleList){
+        for (LitemallRole role : roleList) {
             roles.add(role.getName());
         }
 

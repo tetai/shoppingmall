@@ -1,7 +1,6 @@
 package org.zkz.litemall.db.canal;
 
 
-
 import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
@@ -17,11 +16,16 @@ public class MoneyLog implements Serializable {
     private Double money;
     private Date createtime;
     private String username;
-    public MoneyLog(){};
+
+    public MoneyLog() {
+    }
+
+    ;
+
     public MoneyLog(Double money, String username) {
         this.money = money;
         this.username = username;
-        this.id= UUID.randomUUID().toString();
+        this.id = UUID.randomUUID().toString();
         this.createtime = new Date();
     }
 

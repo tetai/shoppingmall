@@ -144,7 +144,8 @@
             <result column="product_id" property="productId"/>
             <result column="goods_name" property="goodsName"/>
             <result column="goods_picture" property="picUrl"/>
-            <result column="goods_specifications" property="specifications" typeHandler="org.zkz.litemall.db.mybatis.JsonStringArrayTypeHandler"/>
+            <result column="goods_specifications" property="specifications"
+                    typeHandler="org.zkz.litemall.db.mybatis.JsonStringArrayTypeHandler"/>
             <result column="goods_number" property="number"/>
             <result column="goods_price" property="price"/>
         </collection>

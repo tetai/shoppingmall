@@ -129,7 +129,7 @@ public class LitemallBrandExample {
      *
      * @mbg.generated
      */
-    public LitemallBrandExample orderBy(String ... orderByClauses) {
+    public LitemallBrandExample orderBy(String... orderByClauses) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < orderByClauses.length; i++) {
             sb.append(orderByClauses[i]);

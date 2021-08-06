@@ -45,6 +45,7 @@ public class OrderGoodsVo {
     public void setId(Integer id) {
         this.id = id;
     }
+
     public String getPicUrl() {
         return picUrl;
     }

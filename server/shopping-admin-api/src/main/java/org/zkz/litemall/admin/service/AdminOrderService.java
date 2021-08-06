@@ -55,7 +55,7 @@ public class AdminOrderService {
 
     public Object list(String nickname, String consignee, String orderSn, LocalDateTime start, LocalDateTime end, List<Short> orderStatusArray,
                        Integer page, Integer limit, String sort, String order) {
-        Map<String, Object> data = (Map)orderService.queryVoSelective(nickname, consignee, orderSn, start, end, orderStatusArray, page, limit, sort, order);
+        Map<String, Object> data = (Map) orderService.queryVoSelective(nickname, consignee, orderSn, start, end, orderStatusArray, page, limit, sort, order);
         return ResponseUtil.ok(data);
     }
 
@@ -162,7 +162,7 @@ public class AdminOrderService {
 
         // 返还优惠券
         List<LitemallCouponUser> couponUsers = couponUserService.findByOid(orderId);
-        for (LitemallCouponUser couponUser: couponUsers) {
+        for (LitemallCouponUser couponUser : couponUsers) {
             // 优惠券状态设置为可使用
             couponUser.setStatus(CouponUserConstant.STATUS_USABLE);
             couponUser.setUpdateTime(LocalDateTime.now());
@@ -244,7 +244,7 @@ public class AdminOrderService {
         // 如果订单不是关闭状态(已取消、系统取消、已退款、用户已确认、系统已确认)，则不能删除
         Short status = order.getOrderStatus();
         if (!status.equals(OrderUtil.STATUS_CANCEL) && !status.equals(OrderUtil.STATUS_AUTO_CANCEL) &&
-                !status.equals(OrderUtil.STATUS_CONFIRM) &&!status.equals(OrderUtil.STATUS_AUTO_CONFIRM) &&
+                !status.equals(OrderUtil.STATUS_CONFIRM) && !status.equals(OrderUtil.STATUS_AUTO_CONFIRM) &&
                 !status.equals(OrderUtil.STATUS_REFUND_CONFIRM)) {
             return ResponseUtil.fail(ORDER_DELETE_FAILED, "订单不能删除");
         }
@@ -271,7 +271,7 @@ public class AdminOrderService {
         }
         // 目前只支持回复一次
         LitemallComment comment = commentService.findById(commentId);
-        if(comment == null){
+        if (comment == null) {
             return ResponseUtil.badArgument();
         }
         if (!StringUtils.isEmpty(comment.getAdminContent())) {

@@ -24,9 +24,10 @@ public class TaskTest {
 
     private class DemoTask extends Task {
 
-        DemoTask(String id, long delayInMilliseconds){
+        DemoTask(String id, long delayInMilliseconds) {
             super(id, delayInMilliseconds);
         }
+
         @Override
         public void run() {
             DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

@@ -128,7 +128,7 @@ public class LitemallCommentExample {
      *
      * @mbg.generated
      */
-    public LitemallCommentExample orderBy(String ... orderByClauses) {
+    public LitemallCommentExample orderBy(String... orderByClauses) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < orderByClauses.length; i++) {
             sb.append(orderByClauses[i]);
@@ -257,7 +257,7 @@ public class LitemallCommentExample {
 
         public boolean isValid() {
             return criteria.size() > 0
-                || picUrlsCriteria.size() > 0;
+                    || picUrlsCriteria.size() > 0;
         }
 
         public List<Criterion> getAllCriteria() {

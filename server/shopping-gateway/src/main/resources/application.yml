@@ -1,0 +1,43 @@
+spring:
+  profiles:
+    active: db, core, admin
+  messages:
+    encoding: UTF-8
+  main:
+    allow-bean-definition-overriding: true
+server:
+  port: 8085
+
+logging:
+  level:
+    root:  INFO
+    org.springframework:  INFO
+    org.mybatis:  INFO
+    org.zkz.litemall.admin:  DEBUG
+    org.zkz.litemall:  DEBUG
+
+swagger:
+  production: false
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9001/eureka/
+
+
+zuul:
+  routes:
+    shopping-es:
+      path: /shopping-es/**
+      serviceId: shopping-es
+      strip-prefix: false
+
+    shopping-wx-api:
+      path: /wx/**
+      serviceId: shopping-wx-api
+      strip-prefix: false
+
+    shopping-admin-api:
+      path: /shopping-admin-api/**
+      serviceId: shopping-admin-api
+      strip-prefix: false

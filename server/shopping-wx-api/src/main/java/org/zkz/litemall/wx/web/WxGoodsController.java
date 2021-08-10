@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.zkz.litemall.wx.dto.EsItem;
 
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -78,6 +79,45 @@ public class WxGoodsController {
     private final static RejectedExecutionHandler HANDLER = new ThreadPoolExecutor.CallerRunsPolicy();
 
     private static ThreadPoolExecutor executorService = new ThreadPoolExecutor(16, 16, 1000, TimeUnit.MILLISECONDS, WORK_QUEUE, HANDLER);
+
+    @GetMapping("queryAll")
+    public List<EsItem> queryAll(
+            Integer categoryId,
+            Integer brandId,
+            String keyword,
+            Boolean isNew,
+            Boolean isHot,
+            @LoginUser Integer userId,
+            @RequestParam(defaultValue = "1") Integer page,
+            @RequestParam(defaultValue = "10000") Integer limit,
+            @Sort(accepts = {"add_time", "retail_price", "name"}) @RequestParam(defaultValue = "add_time") String sort,
+            @Order @RequestParam(defaultValue = "desc") String order
+    ) {
+        System.out.println("queryAll------------------------------------queryAll");
+
+
+
+        //查询列表数据
+        List<LitemallGoods> goodsList = goodsService.querySelective(categoryId, brandId, keyword, isHot, isNew, page, limit, sort, order);
+
+        List<EsItem> list = new ArrayList<>();
+        for (LitemallGoods goods : goodsList) {
+            EsItem esItem = new EsItem();
+            esItem.setcId(goods.getId().longValue());
+            esItem.setName(goods.getName());
+//            esItem.setDescription(goods.getBrief());
+            esItem.setSellPoint(goods.getBrief());
+            list.add(esItem);
+        }
+
+        System.out.println("queryAll------------------------------------queryAll");
+        System.out.println("queryAll------------------------------------queryAll");
+        System.out.println("queryAll------------------------------------queryAll");
+        System.out.println("queryAll----------"+list.size()+"--------------------------queryAll");
+        return list;
+
+    }
+
 
     /**
      * 商品详情

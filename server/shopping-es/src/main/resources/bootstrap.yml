@@ -1,3 +1,3 @@
-#spring:
-#  application:
-#    name: shopping-es
+spring:
+  application:
+    name: shopping-es

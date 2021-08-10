@@ -24,13 +24,25 @@
         <module>shopping-db</module>
         <module>shopping-wx-api</module>
         <module>shopping-admin-api</module>
-        <module>shopping-all</module>
-        <module>shopping-all-war</module>
+<!--        <module>shopping-all</module>-->
+<!--        <module>shopping-all-war</module>-->
         <module>shopping-es</module>
+        <module>shopping-eureka</module>
+        <module>shopping-gateway</module>
+
     </modules>
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Finchley.RELEASE</version><!-- eureka版本 -->
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <dependency>
                 <groupId>org.zkz</groupId>
                 <artifactId>shopping-core</artifactId>

@@ -109,9 +109,9 @@ export function goodsList(query) {
 
 export const EsSearch='shopping-es/search'; //关键字搜索商品
 export function searchGoodsList(query) {
-  let url = EsSearch + "/" + query.keyword + "/" + query.page + "/" + query.limit;
+  // let url = EsSearch + "/" + query.keyword + "/" + query.page + "/" + query.limit;
   return request({
-    url: url,
+    url: EsSearch,
     method: 'get',
     params: query
   })

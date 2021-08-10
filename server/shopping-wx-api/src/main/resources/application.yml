@@ -17,3 +17,8 @@ logging:
 
 swagger:
   production: false
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9001/eureka/

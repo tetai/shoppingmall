@@ -19,3 +19,8 @@ spring:
     multipart:
       max-file-size: 20MB
       max-request-size: 20MB
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9001/eureka/

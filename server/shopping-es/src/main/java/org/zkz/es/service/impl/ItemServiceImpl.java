@@ -93,6 +93,8 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public List<EsItem> syncData() {
         List<EsItem> esItemList = itemFeign.fetch();
+        LOGGER.info("获取商品数量：" + esItemList.size());
+        itemRepository.deleteAll();
         itemRepository.saveAll(esItemList);
         return getAll();
     }

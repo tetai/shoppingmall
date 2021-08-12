@@ -1,4 +1,4 @@
-package org.zkz.es.service.impl;
+package org.zkz.litemall.es.service.impl;
 
 import org.elasticsearch.index.query.MoreLikeThisQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
@@ -18,10 +18,10 @@ import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilde
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
-import org.zkz.es.dao.ItemRepository;
-import org.zkz.es.entity.EsItem;
-import org.zkz.es.feign.ItemFeign;
-import org.zkz.es.service.ItemService;
+import org.zkz.litemall.es.dao.ItemRepository;
+import org.zkz.litemall.es.entity.EsItem;
+import org.zkz.litemall.es.feign.ItemFeign;
+import org.zkz.litemall.es.service.ItemService;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -58,7 +58,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public void delete(@NonNull String itemId) {
+    public void delete(@NonNull Long itemId) {
         itemRepository.deleteById(itemId);
     }
 
@@ -79,10 +79,6 @@ public class ItemServiceImpl implements ItemService {
         return elasticsearchTemplate.queryForPage(query, EsItem.class);
     }
 
-    @Override
-    public EsItem getById(String itemId) {
-        return itemRepository.findByItemId(itemId);
-    }
 
     @Override
     public List<EsItem> getAll() {
@@ -94,31 +90,35 @@ public class ItemServiceImpl implements ItemService {
     public List<EsItem> syncData() {
         List<EsItem> esItemList = itemFeign.fetch();
         LOGGER.info("获取商品数量：" + esItemList.size());
-        itemRepository.deleteAll();
+        if (itemRepository.count() > 0 ) {
+            LOGGER.info("删除所有：" + itemRepository.count());
+            itemRepository.deleteAll();
+        }
+        LOGGER.info("添加数据");
         itemRepository.saveAll(esItemList);
         return getAll();
     }
 
-    @Override
-    public Page<EsItem> recommend(List<String> itemIds, int page, int size) {
-        Pageable pageable = PageRequest.of(page, size);
-        String[] itemCatNames;
-        if (itemIds.size() != 0) {
-            List<EsItem> esItems = itemRepository.findByItemIdIn(itemIds);
-            itemCatNames = esItems.stream().map(EsItem::getItemCatName).toArray(String[]::new);
-        } else {
-            itemCatNames = new String[]{"手机"};
-        }
-        System.out.println(Arrays.toString(itemCatNames));
-        MoreLikeThisQueryBuilder moreLikeThisQueryBuilder = QueryBuilders
-                .moreLikeThisQuery(new String[]{"itemCatName"}, itemCatNames, null).minTermFreq(1);
-        NativeSearchQueryBuilder nativeSearchQueryBuilder = new NativeSearchQueryBuilder();
-        nativeSearchQueryBuilder.withQuery(moreLikeThisQueryBuilder).withPageable(pageable)
-                .withSort(SortBuilders.fieldSort("sale").order(SortOrder.DESC));
-        NativeSearchQuery query = nativeSearchQueryBuilder.build();
-        // return elasticsearchTemplate.queryForPage(query, EsItem.class);
-        return itemRepository.search(query);
-    }
+//    @Override
+//    public Page<EsItem> recommend(List<String> itemIds, int page, int size) {
+//        Pageable pageable = PageRequest.of(page, size);
+//        String[] itemCatNames;
+//        if (itemIds.size() != 0) {
+//            List<EsItem> esItems = itemRepository.findBy(itemIds);
+//            itemCatNames = esItems.stream().map(EsItem::getName).toArray(String[]::new);
+//        } else {
+//            itemCatNames = new String[]{"手机"};
+//        }
+//        System.out.println(Arrays.toString(itemCatNames));
+//        MoreLikeThisQueryBuilder moreLikeThisQueryBuilder = QueryBuilders
+//                .moreLikeThisQuery(new String[]{"itemCatName"}, itemCatNames, null).minTermFreq(1);
+//        NativeSearchQueryBuilder nativeSearchQueryBuilder = new NativeSearchQueryBuilder();
+//        nativeSearchQueryBuilder.withQuery(moreLikeThisQueryBuilder).withPageable(pageable)
+//                .withSort(SortBuilders.fieldSort("sale").order(SortOrder.DESC));
+//        NativeSearchQuery query = nativeSearchQueryBuilder.build();
+//        // return elasticsearchTemplate.queryForPage(query, EsItem.class);
+//        return itemRepository.search(query);
+//    }
 
     @Override
     public Page<EsItem> queryPriceRange(BigDecimal price1, BigDecimal price2, int page, int size) {

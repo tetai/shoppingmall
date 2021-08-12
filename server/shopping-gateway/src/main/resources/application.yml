@@ -25,7 +25,13 @@ eureka:
       defaultZone: http://localhost:9001/eureka/
 
 
+
 zuul:
+  sensitive-headers: Access-Control-Allow-Origin
+  ignored-headers: Access-Control-Allow-Origin,H-APP-Id,Token,APPToken
+  host:
+    connect-timeout-millis: 50000
+    socket-timeout-millis: 50000
   routes:
     shopping-es:
       path: /shopping-es/**
@@ -41,3 +47,8 @@ zuul:
       path: /shopping-admin-api/**
       serviceId: shopping-admin-api
       strip-prefix: false
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1

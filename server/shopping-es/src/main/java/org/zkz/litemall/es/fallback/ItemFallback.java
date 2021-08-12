@@ -1,11 +1,10 @@
-package org.zkz.es.fallback;
+package org.zkz.litemall.es.fallback;
 
 import org.springframework.stereotype.Component;
-import org.zkz.es.entity.EsItem;
-import org.zkz.es.feign.ItemFeign;
+import org.zkz.litemall.es.entity.EsItem;
+import org.zkz.litemall.es.feign.ItemFeign;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**

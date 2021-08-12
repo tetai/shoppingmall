@@ -1,8 +1,8 @@
-package org.zkz.es.service;
+package org.zkz.litemall.es.service;
 
 import org.springframework.data.domain.Page;
 import org.springframework.lang.NonNull;
-import org.zkz.es.entity.EsItem;
+import org.zkz.litemall.es.entity.EsItem;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -15,13 +15,12 @@ public interface ItemService {
 
     EsItem add(@NonNull EsItem esItem);
 
-    void delete(@NonNull String itemId);
+    void delete(@NonNull Long itemId);
 
     EsItem update(@NonNull EsItem esItem);
 
     Page<EsItem> getByKey(String keyWord, int page, int limit);
 
-    EsItem getById(String itemId);
 
     List<EsItem> getAll();
 
@@ -33,7 +32,7 @@ public interface ItemService {
     /**
      * 商品推荐
      */
-    Page<EsItem> recommend(List<String> itemIds, int page, int size);
+//    Page<EsItem> recommend(List<String> itemIds, int page, int size);
 
     /**
      * 查询指定价格范围内的商品

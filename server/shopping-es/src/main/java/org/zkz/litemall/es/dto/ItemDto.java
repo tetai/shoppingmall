@@ -1,7 +1,4 @@
-package org.zkz.litemall.wx.dto;
-
-import org.springframework.data.annotation.Id;
-
+package org.zkz.litemall.es.dto;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -10,8 +7,7 @@ import java.math.BigDecimal;
  * @Author Yoke
  * @Date 2018/10/17 下午8:17
  */
-
-public class EsItem implements Serializable {
+public class ItemDto implements Serializable {
 
     private static final long serialVersionUID = -4001786119212330546L;
 
@@ -137,14 +133,6 @@ public class EsItem implements Serializable {
 
     public void setRemark(String remark) {
         this.remark = remark;
-    }
-
-    @Override
-    public String toString() {
-        return "EsItem{" + "itemId='" + itemId + '\'' + ", name='" + name + '\'' + ", cId=" + cId + ", itemCatName='"
-                + itemCatName + '\'' + ", sellPoint='" + sellPoint + '\'' + ", price=" + price + ", limitNum="
-                + limitNum + ", image='" + image + '\'' + ", remark='" + remark + '\'' + ", description='" + description
-                + '\'' + ", sortOrder=" + sortOrder + ", sale=" + sale + '}';
     }
 
 }

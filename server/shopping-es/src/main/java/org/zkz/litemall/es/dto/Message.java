@@ -1,4 +1,4 @@
-package org.zkz.es.dto;
+package org.zkz.litemall.es.dto;
 
 import org.springframework.http.HttpStatus;
 

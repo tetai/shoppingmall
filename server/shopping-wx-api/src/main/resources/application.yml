@@ -4,6 +4,10 @@ spring:
   messages:
     encoding: UTF-8
 
+  mvc:
+    async:
+       request-timeout: 20000
+
 server:
   port: 8082
 

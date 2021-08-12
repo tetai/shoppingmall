@@ -1,4 +1,4 @@
-package org.zkz.es.util;
+package org.zkz.litemall.es.util;
 
 import com.github.pagehelper.Page;
 

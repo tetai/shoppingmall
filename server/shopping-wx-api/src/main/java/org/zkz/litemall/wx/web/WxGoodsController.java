@@ -3,13 +3,6 @@ package org.zkz.litemall.wx.web;
 import com.github.pagehelper.PageInfo;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.zkz.litemall.core.system.SystemConfig;
-import org.zkz.litemall.core.util.ResponseUtil;
-import org.zkz.litemall.core.validator.Order;
-import org.zkz.litemall.core.validator.Sort;
-import org.zkz.litemall.db.domain.*;
-import org.zkz.litemall.db.service.*;
-import org.zkz.litemall.wx.annotation.LoginUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
@@ -17,7 +10,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.zkz.litemall.wx.dto.EsItem;
+import org.zkz.litemall.core.entity.EsItem;
+import org.zkz.litemall.core.system.SystemConfig;
+import org.zkz.litemall.core.util.ResponseUtil;
+import org.zkz.litemall.core.validator.Order;
+import org.zkz.litemall.core.validator.Sort;
+import org.zkz.litemall.db.domain.*;
+import org.zkz.litemall.db.service.*;
+import org.zkz.litemall.wx.annotation.LoginUser;
 
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -95,26 +95,13 @@ public class WxGoodsController {
     ) {
         System.out.println("queryAll------------------------------------queryAll");
 
-
-
         //查询列表数据
         List<LitemallGoods> goodsList = goodsService.querySelective(categoryId, brandId, keyword, isHot, isNew, page, limit, sort, order);
 
-        List<EsItem> list = new ArrayList<>();
-        for (LitemallGoods goods : goodsList) {
-            EsItem esItem = new EsItem();
-            esItem.setcId(goods.getId().longValue());
-            esItem.setName(goods.getName());
-//            esItem.setDescription(goods.getBrief());
-            esItem.setSellPoint(goods.getBrief());
-            list.add(esItem);
-        }
+        List<EsItem> result = EsItem.tranferToEsItem(goodsList);
 
-        System.out.println("queryAll------------------------------------queryAll");
-        System.out.println("queryAll------------------------------------queryAll");
-        System.out.println("queryAll------------------------------------queryAll");
-        System.out.println("queryAll----------"+list.size()+"--------------------------queryAll");
-        return list;
+        System.out.println("queryAll----------"+result.size()+"--------------------------queryAll");
+        return result;
 
     }
 

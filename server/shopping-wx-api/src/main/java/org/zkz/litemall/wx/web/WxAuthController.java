@@ -258,11 +258,11 @@ public class WxAuthController {
         if (!RegexUtil.isMobileSimple(mobile)) {
             return ResponseUtil.fail(AUTH_INVALID_MOBILE, "手机号格式不正确");
         }
-        //判断验证码是否正确
-        String cacheCode = CaptchaCodeManager.getCachedCaptcha(mobile);
-        if (cacheCode == null || cacheCode.isEmpty() || !cacheCode.equals(code)) {
-            return ResponseUtil.fail(AUTH_CAPTCHA_UNMATCH, "验证码错误");
-        }
+        // TODO 判断验证码是否正确
+//        String cacheCode = CaptchaCodeManager.getCachedCaptcha(mobile);
+//        if (cacheCode == null || cacheCode.isEmpty() || !cacheCode.equals(code)) {
+//            return ResponseUtil.fail(AUTH_CAPTCHA_UNMATCH, "验证码错误");
+//        }
 
         String openId = "";
         // 非空，则是小程序注册

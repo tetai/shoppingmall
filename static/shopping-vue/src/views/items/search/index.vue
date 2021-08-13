@@ -45,7 +45,7 @@
 
 <script>
 import { Card, Search, Tag, List } from 'vant';
-import { searchGoodsList } from '@/api/api';
+import { searchGoodsList, saveSearchHistory } from '@/api/api';
 import IsEmpty from '@/components/is-empty/';
 
 export default {
@@ -108,6 +108,14 @@ export default {
       return false;
     },
     searchGoods() {
+
+      // 保存搜索记录
+      saveSearchHistory({
+        keyword: this.keyword,
+      }).then(res => {
+        console.log(res);
+      });
+
       searchGoodsList({
         keyword: this.keyword,
         page: this.page,

@@ -434,6 +434,16 @@ export function couponReceive(data) {
     data
   })
 }
+
+const SaveSearchHistory='wx/goods/saveSearchHistory'; // 保存搜索记录
+export function saveSearchHistory(query) {
+  return request({
+    url: SaveSearchHistory,
+    method: 'get',
+    params: query
+  })
+}
+
 const CouponExchange='wx/coupon/exchange'; //优惠券兑换
 
 const StorageUpload='wx/storage/upload'; //图片上传,

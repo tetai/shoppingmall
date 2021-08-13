@@ -7,6 +7,7 @@ import org.zkz.litemall.core.util.ResponseUtil;
 import org.zkz.litemall.core.validator.Order;
 import org.zkz.litemall.core.validator.Sort;
 import org.zkz.litemall.db.domain.LitemallGoods;
+import org.zkz.litemall.db.domain.LitemallSearchHistory;
 import org.zkz.litemall.es.dto.Message;
 import org.zkz.litemall.es.entity.EsItem;
 import org.zkz.litemall.es.service.ItemService;

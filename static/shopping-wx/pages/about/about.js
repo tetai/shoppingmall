@@ -10,7 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name: 'litemall',
+    name: '商城',
     address: 'https://github.com/zkz/litemall',
     latitude: '31.201900',
     longitude: '121.587839',

@@ -351,5 +351,20 @@ public class WxGoodsController {
         Integer goodsCount = goodsService.queryOnSale();
         return ResponseUtil.ok(goodsCount);
     }
+    /**
+     * 保存搜索记录
+     */
+    @GetMapping("saveSearchHistory")
+    public Object saveSearchHistory(String keyword, @LoginUser Integer userId) {
 
+        //添加到搜索历史
+        if (userId != null && !StringUtils.isEmpty(keyword)) {
+            LitemallSearchHistory searchHistoryVo = new LitemallSearchHistory();
+            searchHistoryVo.setKeyword(keyword);
+            searchHistoryVo.setUserId(userId);
+            searchHistoryVo.setFrom("wx");
+            searchHistoryService.save(searchHistoryVo);
+        }
+        return ResponseUtil.ok();
+    }
 }

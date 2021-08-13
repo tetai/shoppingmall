@@ -80,7 +80,7 @@ export const asyncRoutes = [
     name: 'userManage',
     meta: {
       title: '用户管理',
-      icon: 'chart'
+      icon: 'el-icon-user'
     },
     children: [
       {
@@ -154,7 +154,7 @@ export const asyncRoutes = [
     name: 'mallManage',
     meta: {
       title: '商场管理',
-      icon: 'chart'
+      icon: 'el-icon-s-shop'
     },
     children: [
       {
@@ -237,7 +237,7 @@ export const asyncRoutes = [
     name: 'goodsManage',
     meta: {
       title: '商品管理',
-      icon: 'chart'
+      icon: 'el-icon-goods'
     },
     children: [
       {
@@ -291,7 +291,7 @@ export const asyncRoutes = [
     name: 'promotionManage',
     meta: {
       title: '推广管理',
-      icon: 'chart'
+      icon: 'el-icon-s-promotion'
     },
     children: [
       {
@@ -388,7 +388,7 @@ export const asyncRoutes = [
     name: 'sysManage',
     meta: {
       title: '系统管理',
-      icon: 'chart'
+      icon: 'el-icon-setting'
     },
     children: [
       {
@@ -452,7 +452,7 @@ export const asyncRoutes = [
     name: 'configManage',
     meta: {
       title: '配置管理',
-      icon: 'chart'
+      icon: 'el-icon-s-tools'
     },
     children: [
       {

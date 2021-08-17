@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.zkz.litemall.wx.mq.send.SendMessage;
 
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -39,6 +40,19 @@ public class WxTopicController {
     private LitemallGoodsService goodsService;
     @Autowired
     private LitemallCollectService collectService;
+
+    @Autowired
+    private SendMessage sendMessageController;
+
+    // 抢购商品，成功后发到MQ
+    @GetMapping("sendToMq")
+    public Object sendToMq(Integer userId) {
+        if (userId == null || userId == 0) {
+            ResponseUtil.fail(401, "用户未登录");
+        }
+
+        return sendMessageController.sendDirectMessage(userId) ? ResponseUtil.ok() : ResponseUtil.fail();
+    }
 
     /**
      * 专题列表
